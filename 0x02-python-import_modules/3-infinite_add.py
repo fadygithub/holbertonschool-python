@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 import sys
+
+
 def main():
     ar = sys.argv
     ar = ar[1:]
