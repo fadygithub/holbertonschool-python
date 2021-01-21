@@ -2,31 +2,30 @@
 from calculator_1 import add, sub, mul, div
 import sys
 
-
 def main():
-    ar = sys.argv
-    ar = arguments[1:]
+    arguments = sys.argv
+    agruments = arguments[1:]
 
-    if len(ar) != 4:
+    if len(arguments) != 4:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
 
-    elif ar[2] != "+" and ar[2] != "-" and ar[2] != "*" and ar[2] != "/":
+    elif arguments[2] != "+" and arguments[2] != "-" and arguments[2] != "*" and arguments[2] != "/":
         print("Unknown operator. Available operators: +, -, * and /")
         print("**")
         sys.exit(1)
     
-    elif ar[2] == "+":
-        print('{} {} {} = {}'.format(ar[1], ar[2], ar[3], format(add(int(ar[1]), int(ar[3])))))
+    elif arguments[2] == "+":
+        print('{} {} {} = {}'.format(arguments[1], arguments[2], arguments[3], format(add(int(arguments[1]), int(arguments[3])))))
 
-    elif ar[2] == "-":
-        print('{} {} {} = {}'.format(ar[1], ar[2], arguments[3], format(sub(int(ar[1]), int(ar[3])))))
+    elif arguments[2] == "-":
+        print('{} {} {} = {}'.format(arguments[1], arguments[2], arguments[3], format(sub(int(arguments[1]), int(arguments[3])))))
 
-    elif ar[2] == "*":
-        print('{} {} {} = {}'.format(ar[1], ar[2], arguments[3], format(mul(int(ar[1]), int(ar[3])))))
+    elif arguments[2] == "*":
+        print('{} {} {} = {}'.format(arguments[1], arguments[2], arguments[3], format(mul(int(arguments[1]), int(arguments[3])))))
 
-    elif ar[2] == "/":
-        print('{} {} {} = {}'.format(ar[1], ar[2], arguments[3], format(div(int(ar[1]), int(ar[3])))))
+    elif arguments[2] == "/":
+        print('{} {} {} = {}'.format(arguments[1], arguments[2], arguments[3], format(div(int(arguments[1]), int(arguments[3])))))
 
 if __name__ == '__main__':
     main()
