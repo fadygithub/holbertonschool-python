@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 from sys import argv
+
+
 def main():
     args = len(argv) - 1
     if args == 0:
