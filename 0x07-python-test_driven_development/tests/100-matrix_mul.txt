@@ -1,0 +1,85 @@
+matrix_mul module
+-----------------
+
+Importing "matrix_mul"
+----------------------
+
+Import file
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+Testing for a valid case
+>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+[[7, 10], [15, 22]]
+
+Testing for a valid case
+>>> matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+[[13, 16]]
+
+Testing - first argument not a list
+>>> matrix_mul("[]", [[], []])
+Traceback (most recent call last):
+TypeError: m_a must be a list
+
+Testing - second argument not a list
+>>> matrix_mul([[], []], "[]")
+Traceback (most recent call last):
+TypeError: m_b must be a list
+
+Testing - first argument not a list of lists
+>>> matrix_mul(["a", "b"], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+TypeError: m_a must be a list of lists
+
+Testing - second argument not a list of lists
+>>> matrix_mul([[1, 2], [3, 4]], ["a", "b"])
+Traceback (most recent call last):
+TypeError: m_b must be a list of lists
+
+Testing - first argument empty
+>>> matrix_mul([], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+ValueError: m_a can't be empty
+
+Testing - second argument empty
+>>> matrix_mul([[1, 2], [3, 4]], [[], []])
+Traceback (most recent call last):
+ValueError: m_b can't be empty
+
+Testing - first argument with non integer elements
+>>> matrix_mul([["1", 2], [3, 4]], [[5, 6], [7, 8]])
+Traceback (most recent call last):
+TypeError: m_a should contain only integers or floats
+
+Testing - second argument with non integer elements
+>>> matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, "8"]])
+Traceback (most recent call last):
+TypeError: m_b should contain only integers or floats
+
+Testing - first argument not a rectangle
+>>> matrix_mul([[1, 2], [3, 4, 9]], [[5, 6], [7, 8]])
+Traceback (most recent call last):
+TypeError: each row of m_a must should be of the same size
+
+Testing - second argument not a rectangle
+>>> matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8, 9]])
+Traceback (most recent call last):
+TypeError: each row of m_b must should be of the same size
+
+Testing matrices that cannot be multiplied
+>>> matrix_mul([[1, 2, 3], [3, 4, 5]], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+ValueError: m_a and m_b can't be multiplied
+
+Testing missing argument
+>>> matrix_mul([[1, 2], [3, 4]])
+Traceback (most recent call last):
+TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+
+Testing for no sent arguments
+>>> matrix_mul()
+Traceback (most recent call last):
+TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+Testing for a 2x3 matrix to a 3x2 matrix 
+>>> matrix_mul([[1, 2], [3, 4], [3, 4]],  [[5, 6, 1], [7, 8, 2]])
+[[19, 22, 5], [43, 50, 11], [43, 50, 11]]
