@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 
-'''
-read_write_heap.py Module 
-'''
+'''read_write_heap.py Module'''
 
 import sys
 
