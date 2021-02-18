@@ -20,9 +20,9 @@ if __name__ == '__main__':
                 print("{}: {}".format(k, v))
 
     try:
-        for l in sys.stdin:
+        for line in sys.stdin:
             counter += 1
-            data = l.split()
+            data = line.split()
             try:
                 status_code = data[-2]
                 if status_code in stats:
