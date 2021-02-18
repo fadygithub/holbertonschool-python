@@ -1,10 +1,7 @@
 #!/usr/bin/python3
 
 '''
-This is a module for read_write_heap.py.
-Sources:
-    https://blog.holbertonschool.com/hack-the-virtual-memory-c-strings-proc/
-    Thanks Julien Barbier!
+read_write_heap.py Module 
 '''
 
 import sys
