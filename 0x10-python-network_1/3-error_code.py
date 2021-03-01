@@ -2,7 +2,8 @@
 
 """
 This will take a URL with an email then will send a POST request 
-with the email as a parameter. It will later display the body of the response
+with the email as a parameter. It will later display the body of
+the response
 """
 
 import urllib.request
