@@ -17,6 +17,10 @@ if __name__ == "__main__":
     url = 'https://api.twitter.com/1.1/search/tweets.json?q='
     url += '{}&count=5'.format(str_search)
     header = {}
-    req = requests.get(url, headers=header)
-    for x in req.json():
-        print("[{}] {} by {}".format(x.get("id"), x.get("text"), x.get("user").get("name")))
+    r = requests.get(url, headers=header)
+    for c in r.json():
+        print("[{}] {} by {}".format(c.get("id"
+                                           ), c.get("text"
+                                                    ), c.get("user"
+                                                             ).get("name"
+                                                                   )))
