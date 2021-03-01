@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 """
-This will take a letter and send a POST request to http://0.0.0.0:5000/search_user
-with it as a parameter
+This will take a letter and send a POST request
+to http://0.0.0.0:5000/search_user with it as a parameter
 """
 
 import requests
