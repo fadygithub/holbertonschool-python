@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 """
-This will takes a URL with an email and then will send a POST request as a parameter.
-Then will display the body of the response
+This will takes a URL with an email and then will send a POST request
+as a parameter. Then will display the body of the response
 """
 
 import urllib.request
