@@ -16,7 +16,7 @@ if N < 4:
 
 def attack(col, queens):
     return col in queens or \
-        any(abs(col - x) == len(queens)-i for i, x in enumerate(queens))
+           any(abs(col - x) == len(queens)-i for i, x in enumerate(queens))
 
 
 def solve(n):
@@ -27,7 +27,6 @@ def solve(n):
                      for i in range(BOARD_SIZE)
                      if not attack(i+1, solution)]
     return solutions
-
 
 if __name__ == '__main__':
     BOARD_SIZE = int(argv[1])
