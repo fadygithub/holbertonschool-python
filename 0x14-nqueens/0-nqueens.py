@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+    0-nqueens.py
+"""
+
 from sys import argv
 
 if len(argv) > 2:
