@@ -33,6 +33,6 @@ def count_words(subreddit, word_list, res=defaultdict(int), after=None):
             return count_words(subreddit, word_list, res, after)
         first_sort = sorted(res.items(), key=lambda x: x[0])
         for k, v in sorted(first_sort, key=lambda x: x[1], reverse=True):
-            print('{}: {}'.format(k, v))
+            print('{}: {}'.format(k.lower(), v.lower()))
     except:
         return
