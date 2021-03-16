@@ -23,10 +23,10 @@ def count_words(subreddit, word_list, res=defaultdict(int), after=None):
         req = requests.get(url, headers=headers, allow_redirects=False).json()
         titles = req.get('data').get('children')
         for title in titles:
-            c = Counter(t.get('data').get('title').lower().split(' '))
+            count = Counter(title.get('data').get('title').lower().split(' '))
             for x in word_list:
-                if x.lower() in c:
-                    res[x] += c.get(x.lower())
+                if x.lower() in count:
+                    res[x] += count.get(x.lower())
         after = req.get('data').get('after')
         if after:
             return count_words(subreddit, word_list, res, after)
