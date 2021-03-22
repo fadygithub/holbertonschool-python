@@ -1,25 +1,34 @@
 #!/usr/bin/env python3
-"""Get_page implementation"""
-from typing import KeysView
-from redis.client import Redis
+""" web.py """
+
+import redis
 import requests
+from typing import Callable
+from functools import wraps
+
+rd = redis.Redis()
 
 
-redis = Redis()
-c = 0
+def count_requests(method: Callable) -> Callable:
+    """ Checking number of requests has been made """
+
+    @wraps(method)
+    def wrapper(url):
+        """ Wrapper function """
+        rd.incr(f"count:{url}")
+        cached_html = rd.get(f"cached:{url}")
+        if cached_html:
+            return cached_html.decode('utf-8')
+
+        html = method(url)
+        rd.setex(f"cached:{url}", 10, html)
+        return html
+
+    return wrapper
 
 
+@count_requests
 def get_page(url: str) -> str:
-    """
-    returns html content of a URL
-    """
-    k = f"count:{url}"
-    redis.set(k, c)
-    resp = requests.get(url)
-    redis.incr(k)
-    redis.setex(KeysView, 10, redis.get(k))
-    return resp.text
-
-
-if __name__ == "__main__":
-    get_page('http://slowwly.robertomurray.co.uk')
+    """ Return html content """
+    req = requests.get(url)
+    return req.text
