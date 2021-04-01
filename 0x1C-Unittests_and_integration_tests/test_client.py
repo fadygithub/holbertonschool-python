@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+"""Parameterize, patch as decorators and Integration teststest_client.py"""
+
 import requests
 import unittest
 from unittest.mock import patch, Mock, PropertyMock, call
